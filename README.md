@@ -8,9 +8,9 @@ Drift turns company docs, decisions and chat into facts that know where they cam
 
 ## Demo video
 
-[![Watch the Drift demo](docs/feed.png)](docs/Drift-demo.mp4)
+[![Watch the Drift demo](docs/feed.png)](https://drive.google.com/drive/folders/11J1VTVw5fEVi8qOsLPngXkIRH4_iZZZu?usp=sharing)
 
-**[▶ Watch the demo](docs/Drift-demo.mp4)**
+**[▶ Watch the demo on Google Drive](https://drive.google.com/drive/folders/11J1VTVw5fEVi8qOsLPngXkIRH4_iZZZu?usp=sharing)** · [download from this repo](docs/Drift-demo.mp4)
 
 ## How it works
 
