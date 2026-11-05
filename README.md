@@ -74,7 +74,19 @@ Nothing is required. With no keys, Drift uses a built-in local TriggerWare engin
 
 ## Deploy
 
-The API needs a long-running process (TriggerWare polling, live event stream, SQLite file), so it runs on Render. The web app runs on Vercel.
+### Vercel (one project, two services)
+
+`vercel.json` deploys both parts as one project: `web` serves `/` and `drift-api` serves `/api/*` on the same domain.
+
+1. Import the repo on Vercel and leave **Root Directory** at the repo root.
+2. Add a `DRIFT_SECRET` environment variable (any long random string). Do not set `NEXT_PUBLIC_API_URL`.
+3. Deploy.
+
+The API runs as a serverless function, so its SQLite data lives in per-instance `/tmp` storage and resets on cold starts. Scheduled polling between requests is not guaranteed; **Check now** always works. That is fine for the demo; production use needs a hosted database.
+
+### Render (API) + Vercel (web)
+
+Use this if you want the API as a long-running server.
 
 1. **API on Render.** New → Blueprint → select this repo. `render.yaml` sets everything up. When asked for `DRIFT_CORS`, enter your Vercel URL (for example `https://drift.vercel.app`).
 2. **Web on Vercel.** New Project → this repo → set **Root Directory** to `web` → add `NEXT_PUBLIC_API_URL` = your Render URL (for example `https://drift-api.onrender.com`).

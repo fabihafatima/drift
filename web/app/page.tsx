@@ -21,7 +21,7 @@ export default function Login() {
           setError(null);
         },
         () => {
-          setError("Can't reach the Drift API on :8000. Retrying…");
+          setError("Can't reach the Drift API. Retrying…");
           timer = setTimeout(load, 2000);
         },
       );

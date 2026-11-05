@@ -2,7 +2,9 @@ import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
-DATA_DIR = Path(os.getenv("DRIFT_DATA_DIR", Path(__file__).resolve().parent.parent / "data"))
+# Vercel functions can only write to /tmp, which is per-instance and wiped on cold start.
+_default_data = Path("/tmp/drift") if os.getenv("VERCEL") else Path(__file__).resolve().parent.parent / "data"
+DATA_DIR = Path(os.getenv("DRIFT_DATA_DIR", _default_data))
 
 
 @dataclass(frozen=True)
