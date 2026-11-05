@@ -72,6 +72,15 @@ Nothing is required. With no keys, Drift uses a built-in local TriggerWare engin
 | `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` | LLM extraction and answer summaries |
 | `NEXT_PUBLIC_API_URL` | API address for the web app, default `http://127.0.0.1:8000` |
 
+## Deploy
+
+The API needs a long-running process (TriggerWare polling, live event stream, SQLite file), so it runs on Render. The web app runs on Vercel.
+
+1. **API on Render.** New → Blueprint → select this repo. `render.yaml` sets everything up. When asked for `DRIFT_CORS`, enter your Vercel URL (for example `https://drift.vercel.app`).
+2. **Web on Vercel.** New Project → this repo → set **Root Directory** to `web` → add `NEXT_PUBLIC_API_URL` = your Render URL (for example `https://drift-api.onrender.com`).
+
+On Render's free plan the API sleeps after 15 minutes idle and reseeds the demo data when it wakes, so the first request can take about a minute.
+
 ## Project layout
 
 ```

@@ -30,6 +30,8 @@ class Settings:
     cors_origins: list[str] = field(
         default_factory=lambda: os.getenv("DRIFT_CORS", "http://localhost:3000,http://127.0.0.1:3000").split(",")
     )
+    # e.g. https://drift-[a-z0-9-]+\.vercel\.app to also allow Vercel preview deployments
+    cors_origin_regex: str | None = os.getenv("DRIFT_CORS_REGEX")
 
     @property
     def llm_provider(self) -> str | None:
