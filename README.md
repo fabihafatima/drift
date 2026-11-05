@@ -6,12 +6,11 @@ Company knowledge goes stale quietly. A runbook says Apollo uses MongoDB weeks a
 
 Drift turns company docs, decisions and chat into facts that know where they came from and when they were true. It then keeps checking those facts against the live systems that run the company, using [TriggerWare](https://triggerware.com). When reality changes, Drift updates its memory without erasing history, flags the documents that are now wrong, traces what depends on the change, and alerts the owner.
 
-![Drift Feed: a live change caught by TriggerWare](docs/feed.png)
-
 ## Demo video
 
-<!-- Drag the video file into this README on GitHub to embed it here. -->
-_Coming soon._
+[![Watch the Drift demo](docs/feed.png)](docs/Drift-demo.mp4)
+
+**[▶ Watch the demo](docs/Drift-demo.mp4)**
 
 ## How it works
 
